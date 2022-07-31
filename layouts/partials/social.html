@@ -1,10 +1,15 @@
 <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    {{ if .OutputFormats.Get "RSS" }}
+    {{ with .Site.Social.phone }}
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href='{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}'><i
-          class="fas fa-rss fa-fw"></i>RSS</a>
+      <a class="pure-menu-link" href="tel:{{ . }}" rel="me"><i class="fa-solid fa-phone fa-fw"></i>{{ . }}</a>
+    </li>
+    {{ end }}
+
+    {{ with .Site.Social.email }}
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="mailto:{{ . }}" rel="me"><i class="fa-solid fa-envelope fa-fw"></i>{{ . }}</a>
     </li>
     {{ end }}
 

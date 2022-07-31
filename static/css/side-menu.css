@@ -29,12 +29,12 @@ This is the parent `<div>` that contains the menu and the content area.
     padding-left: 0;
 }
     #layout.active #menu {
-        left: 150px;
-        width: 150px;
+        left: 200px;
+        width: 200px;
     }
 
     #layout.active .menu-link {
-        left: 150px;
+        left: 200px;
     }
 /*
 The content `<div>` is where all your content goes.
@@ -80,8 +80,8 @@ appears on the left side of the page.
 */
 
 #menu {
-    margin-left: -150px; /* "#menu" width */
-    width: 150px;
+    margin-left: -200px; /* "#menu" width */
+    width: 200px;
     position: fixed;
     top: 0;
     left: 0;
@@ -129,13 +129,13 @@ appears on the left side of the page.
     */
     #menu .pure-menu-selected,
     #menu .pure-menu-heading {
-        background: #1f8dd6;
+        background: #ffab00;
     }
         /*
         This styles a link within a selected menu item `<li>`.
         */
-        #menu .pure-menu-selected a {
-            color: #fff;
+        #menu .pure-menu-selected:not(:hover):not(:focus) a {
+            color: #191818;
         }
 
     /*
@@ -145,6 +145,14 @@ appears on the left side of the page.
         font-size: 110%;
         color: #fff;
         margin: 0;
+    }
+
+    #menu #logo {
+        width: 100%;
+    }
+
+    #menu .small-print a {
+        padding: 0;
     }
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
@@ -216,21 +224,21 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 
     #layout {
-        padding-left: 150px; /* left col width "#menu" */
+        padding-left: 200px; /* left col width "#menu" */
         left: 0;
     }
     #menu {
-        left: 150px;
+        left: 200px;
     }
 
     .menu-link {
         position: fixed;
-        left: 150px;
+        left: 200px;
         display: none;
     }
 
     #layout.active .menu-link {
-        left: 150px;
+        left: 200px;
     }
 }
 
@@ -243,6 +251,6 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     */
     #layout.active {
         position: relative;
-        left: 150px;
+        left: 200px;
     }
 }
