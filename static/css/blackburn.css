@@ -5,6 +5,13 @@ body {
   font-family: "Frutiger LT 45 Light", "Open Sans", Helvetica, Arial, sans-serif;
 }
 
+#map {
+  display: none;
+  min-height: 40em;
+  max-height: 100vw;
+  height: 60vh;
+}
+
 a {
   color: #3b8bba;
   text-decoration: none;
