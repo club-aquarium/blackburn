@@ -1,0 +1,16 @@
+{{ range .subpages }}
+  {{ $classes := "pure-menu-item" }}
+  {{ if eq . $.active }}
+    {{ $classes = print $classes " pure-menu-selected" }}
+  {{ end }}
+  <li class="{{ $classes }}">
+    <a class="pure-menu-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{ if ne .Layout "taxonomy" }}
+    {{ with .Pages }}
+    <div style="margin-left: .6em">
+      {{ partial "menu-recursive.html" (dict "subpages" . "active" $.active) }}
+    </div>
+    {{ end }}
+  {{ end }}
+{{end}}

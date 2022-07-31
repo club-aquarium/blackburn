@@ -9,23 +9,16 @@
 
   <div class="pure-menu">
     <ul class="pure-menu-list">
-      {{ range .Site.Menus.main }}
-      {{ if .HasChildren }}
-        <li class="pure-menu-item pure-menu-has-children">
-          <a class="pure-menu-link" href="#">{{ .Pre }}{{ .Name }}</a>
-          <ul class="pure-menu-children">
-            {{ range .Children }}
-            <li class="pure-menu-item">
-              <a class="pure-menu-link" href="{{ .URL }}">{{ .Name }}</a>
-            </li>
-            {{ end }}
-          </ul>
-      {{else}}
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" {{ printf "href=%q" .URL | safeHTMLAttr }}>{{ .Pre }}{{ .Name }}</a>
-      {{end}}
-        </li>
-      {{end}}
+      {{ $classes := "pure-menu-item" }}
+      {{ if .IsHome }}
+        {{ $classes = print $classes " pure-menu-selected" }}
+      {{ end }}
+      <li class="{{ $classes }}">
+      {{ with .Site.Home }}
+        <a class="pure-menu-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{ end }}
+      </li>
+      {{ partial "menu-recursive.html" (dict "subpages" .Site.Home.Pages "active" .) }}
     </ul>
   </div>
 
