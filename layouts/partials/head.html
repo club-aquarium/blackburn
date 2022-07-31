@@ -11,14 +11,13 @@
     {{ end }}
 
   <!-- CSS -->
-  {{ $purecss := "https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/" }}
-  <link rel="stylesheet" href="{{ $purecss }}pure-min.css">
+  <link rel="stylesheet" href="/css/pure-min.css">
 
   {{ "<!--[if lte IE 8]>" | safeHTML }}
-  <link rel="stylesheet" href="{{ $purecss }}grids-responsive-old-ie-min.css">
+  <link rel="stylesheet" href="/css/grids-responsive-old-ie-min.css">
   {{ "<![endif]-->" | safeHTML }}
   {{ "<!--[if gt IE 8]><!-->" | safeHTML }}
-  <link rel="stylesheet" href="{{ $purecss }}grids-responsive-min.css">
+  <link rel="stylesheet" href="/css/grids-responsive-min.css">
   {{ "<!--<![endif]-->" | safeHTML }}
 
   {{ "<!--[if lte IE 8]>" | safeHTML }}
@@ -31,28 +30,16 @@
   <link rel="stylesheet" href="/css/blackburn.css">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css">
-
-  <!-- MathJax -->
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  {{ $fontAwesome := resources.Get "css/font-awesome/css/all.min.css" }}
+  {{ range (resources.Match "css/font-awesome/webfonts/**") }}
+    {{ .Publish }}
+  {{ end }}
+  <link rel="stylesheet" href="{{ $fontAwesome.RelPermalink }}">
 
  <!-- RSS -->
   {{ if .OutputFormats.Get "RSS" }}
   <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}"
     href='{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}' />
-  {{ end }}
-
-  {{ with .Site.Params.highlightjs }}
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/{{ . }}.min.css">
-  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
-  {{ range $.Site.Params.highlightjs_extra_languages }}
-  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/{{ . }}.min.js"></script>
-  {{ end }}
-  <script>hljs.initHighlightingOnLoad();</script>
   {{ end }}
 
   {{ partial "favicon.html" . }}
