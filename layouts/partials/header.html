@@ -9,3 +9,10 @@
   {{ partial "sidemenu.html" . }}
 
   <div id="main">
+    {{ with .Site.Params.logo }}
+    <div class="mobile-header">
+      <a href="/">
+        <img class="logo" alt="Logo" src="{{ . }}">
+      </a>
+    </div>
+    {{ end }}
