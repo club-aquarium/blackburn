@@ -12,7 +12,7 @@
     {{ with .Site.Params.logo }}
     <div class="mobile-header">
       <a href="/">
-        <img class="logo" alt="Logo" src="{{ . }}">
+        <img class="logo" alt="Logo" src="{{ $.Site.BaseURL | relURL }}{{ . }}">
       </a>
     </div>
     {{ end }}

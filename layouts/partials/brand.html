@@ -1,5 +1,5 @@
 {{ with .Site.Params.logo }}
-  <a class="pure-menu-heading brand" href="/">
-    <img class="logo" alt="Logo" src="{{ . }}">
+  <a class="pure-menu-heading brand" href="{{ $.Site.BaseURL | relURL }}">
+    <img class="logo" alt="Logo" src="{{ $.Site.BaseURL | relURL }}{{ . }}">
   </a>
 {{ end }}

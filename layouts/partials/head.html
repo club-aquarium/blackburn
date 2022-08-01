@@ -11,23 +11,23 @@
     {{ end }}
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/pure-min.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL | relURL }}/css/pure-min.css">
 
   {{ "<!--[if lte IE 8]>" | safeHTML }}
-  <link rel="stylesheet" href="/css/grids-responsive-old-ie-min.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/grids-responsive-old-ie-min.css">
   {{ "<![endif]-->" | safeHTML }}
   {{ "<!--[if gt IE 8]><!-->" | safeHTML }}
-  <link rel="stylesheet" href="/css/grids-responsive-min.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL | relURL }}/css/grids-responsive-min.css">
   {{ "<!--<![endif]-->" | safeHTML }}
 
   {{ "<!--[if lte IE 8]>" | safeHTML }}
-  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/side-menu-old-ie.css">
   {{ "<![endif]-->" | safeHTML }}
   {{ "<!--[if gt IE 8]><!-->" | safeHTML }}
-  <link rel="stylesheet" href="/css/side-menu.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL | relURL }}/css/side-menu.css">
   {{ "<!--<![endif]-->" | safeHTML }}
 
-  <link rel="stylesheet" href="/css/blackburn.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL | relURL }}/css/blackburn.css">
 
   <!-- Icons -->
   {{ $fontAwesome := resources.Get "css/font-awesome/css/all.min.css" }}
